@@ -12,6 +12,8 @@ I completed the searching by creating a custom pipe found in [src/app/order-arra
 ## HTTP data
 I used a dummy data.JSON file found at [src/data/reqData.json](/src/data/reqData.json)
 The route to this file could easily be replaced with a FQDN to an API
+**NOTE: JSON formate needs to be an array of similar objects**
+The first objects in the JSON is used to create the table header.
 
 ## Boilerplate Source
 I started with boilerplate code found [here](https://travis-ci.org/angular/quickstart)
