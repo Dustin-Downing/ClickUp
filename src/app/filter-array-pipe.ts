@@ -8,7 +8,11 @@ export class FilterArrayPipe {
     } else if (list) {
       return list.filter(item => {
         for (let key in item) {
-          if ((typeof item[key] === 'string' || item[key] instanceof String) && (item[key].indexOf(args) !== -1)) {
+          let target = item[key];
+          if (typeof target === 'number') {
+            target = target.toString();
+          }
+          if ((typeof target === 'string' || target instanceof String) && (target.indexOf(args) !== -1)) {
             return true;
           }
         }

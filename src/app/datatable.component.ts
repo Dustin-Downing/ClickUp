@@ -35,7 +35,7 @@ export class DatatableComponent {
   @Input() enableFilter = false;
   columns: ColumnComponent[] = [];
   filterQuery = "";
-  selectedOrder = "id";
+  selectedOrder = "";
 
   addColumn(column){
     this.columns.push(column);

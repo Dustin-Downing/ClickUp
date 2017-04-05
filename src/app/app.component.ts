@@ -12,7 +12,9 @@ export class AppComponent {
   headers;
 
   constructor(private http:Http) {
-    this.http.get('data/reqData.json')
+    // To make this table responds to a different API call, use the line below
+    // this.http.get('https://jsonplaceholder.typicode.com/todos')
+    this.http.get('data/reqData.json') //switch this line with line above
       .subscribe(res => {
         this.reqData = res.json();
         this.headers = [];
