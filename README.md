@@ -10,9 +10,9 @@ I complete the searching by creating a custom pipe found in [src/app/filter-arra
 I completed the searching by creating a custom pipe found in [src/app/order-array-pipe.ts](/src/app/order-array-pipe.ts)
 
 ## HTTP data
-I used a dummy data.JSON file found at [src/data/reqData.json](/src/data/reqData.json)
-The route to this file could easily be replaced with a FQDN to an API
-**NOTE: JSON formate needs to be an array of similar objects**
+I used a dummy data.JSON file found at [src/data/reqData.json](/src/data/reqData.json) <br />
+The route to this file could easily be replaced with a FQDN to an API <br />
+**NOTE: JSON formate needs to be an array of similar objects** <br />
 The first objects in the JSON is used to create the table header.
 
 ## Boilerplate Source
