@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "make": "BMW",
+    "model": "135i",
+    "year": "2009",
+    "price": "$16,417"
+  },
+  {
+    "id": 2,
+    "make": "Buick",
+    "model": "Encore",
+    "year": "2015",
+    "price": "$19,998"
+  },
+  {
+    "id": 3,
+    "make": "Cadillac",
+    "model": "DTS",
+    "year": "2011",
+    "price": "$11,432"
+  },
+  {
+    "id": 4,
+    "make": "Dodge",
+    "model": "Charger SXT",
+    "year": "2016",
+    "price": "$20,643"
+  },
+  {
+    "id": 5,
+    "make": "Dodge",
+    "model": "Challenger SRT8",
+    "year": "2010",
+    "price": "$27,697"
+  },
+  {
+    "id": 6,
+    "make": "GMC",
+    "model": "Yukon XL 1500 Denali",
+    "year": "2014",
+    "price": "$27,588"
+  },
+  {
+    "id": 7,
+    "make": "Mercedes-Benz",
+    "model": "CLS",
+    "year": "2007",
+    "price": "$11,953"
+  },
+  {
+    "id": 8,
+    "make": "Lexus",
+    "model": "IS 350",
+    "year": "2014",
+    "price": "$29,987"
+  },
+  {
+    "id": 9,
+    "make": "Chevrolet",
+    "model": "Malibu",
+    "year": "2016",
+    "price": "$14,998"
+  },
+  {
+    "id": 10,
+    "make": "Chevrolet",
+    "model": "Tahoe",
+    "year": "2016",
+    "price": "$43,225"
+  }
+]
