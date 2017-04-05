@@ -4,18 +4,27 @@ import {Injectable, Component } from '@angular/core';
 @Component({
   selector: 'my-app',
   template:`<datatable [dataset]=reqData [enableFilter]=true>
-              <column [value]="'id'" [header]="'Id'"></column>
-              <column [value]="'model'" [header]="'Model'"></column>
-              <column [value]="'make'" [header]="'Make'"></column>
-              <column [value]="'year'" [header]="'Year'"></column>
-              <column [value]="'price'" [header]="'Price'"></column>
+              <column *ngFor="let header of headers" [value]="header" [header]="toTitleCase(header)"></column>
             </datatable>`,
 })
 export class AppComponent {
-    reqData;
+  reqData;
+  headers;
 
-    constructor(private http:Http) {
-        this.http.get('data/reqData.json')
-          .subscribe(res => this.reqData = res.json());
-    }
+  constructor(private http:Http) {
+    this.http.get('data/reqData.json')
+      .subscribe(res => {
+        this.reqData = res.json();
+        this.headers = [];
+        for(var key in res.json()[0]){
+          if(res.json()[0].hasOwnProperty(key)) {
+            this.headers.push(key);
+          }
+        }
+      });
+  }
+
+  toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+  }
 }
