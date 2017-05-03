@@ -12,16 +12,16 @@ import {ColumnComponent} from './column.component';
                 <table class="table table-bordered table-hover">
                   <thead style="background-color: #9E9E9E;">
                     <tr>
-                      <th *ngFor="let column of columns" (click)="selectOrder(column.value)">
+                      <th *ngFor="let column of columns; let i=index" (click)="selectOrder(i, column.value)">
                         <button type="button" class="btn btn-primary">
                           {{column.header}}
-                          <i *ngIf="selectedOrder===column.value" class="fa fa-caret-up" aria-hidden="true"></i>
-                          <i *ngIf="selectedOrder==='-'+column.value" class="fa fa-caret-down" aria-hidden="true"></i>
+                          <i *ngIf="selectedOrderIndex===i" class="fa fa-caret-up" aria-hidden="true"></i>
+                          <i *ngIf="selectedOrderIndex==='-'+i" class="fa fa-caret-down" aria-hidden="true"></i>
                         </button>
                       </th>
                     </tr>
                   </thead>
-        	        <tbody *ngFor="let row of dataset | filter:filterQuery | orderBy:selectedOrder">
+        	        <tbody *ngFor="let row of dataset | filter:filterQuery | orderBy: selectedOrderIndex:selectedOrderColumn">
             	  	  <tr>
             	  	    <td *ngFor="let column of columns">{{row[column.value]}}</td>
         	          </tr>
@@ -35,14 +35,16 @@ export class DatatableComponent {
   @Input() enableFilter = false;
   columns: ColumnComponent[] = [];
   filterQuery = "";
-  selectedOrder = "";
+  selectedOrderIndex = "0";
+  selectedOrderColumn = "";
 
   addColumn(column){
     this.columns.push(column);
   }
 
-  selectOrder(column){
-    this.selectedOrder = ((this.selectedOrder===column) ? "-"+column : column);
+  selectOrder(columnIndex, columnName){
+    this.selectedOrderColumn = columnName;
+    this.selectedOrderIndex = ((this.selectedOrderIndex===columnIndex) ? "-"+columnIndex : columnIndex);
   }
 
 }

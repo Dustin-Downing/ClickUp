@@ -1,15 +1,14 @@
-import { Pipe } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'orderBy' })
-export class ArrayOrderPipe {
-  transform(list, args) {
+export class ArrayOrderPipe implements PipeTransform {
+  transform(list, arg1, arg2) {
     if(list){
-      if(args.charAt(0) === '-'){
-        let header = args.substr(1);
+      if(arg1[0] === '-'){
         return list.sort((a, b) => {
-          if (a[header] > b[header]) {
+          if (a[arg2] > b[arg2]) {
             return -1;
-          } else if (a[header] < b[header]) {
+          } else if (a[arg2] < b[arg2]) {
             return 1;
           } else {
             return 0;
@@ -17,9 +16,9 @@ export class ArrayOrderPipe {
         });
       } else {
         return list.sort((a, b) => {
-          if (a[args] < b[args]) {
+          if (a[arg2] < b[arg2]) {
             return -1;
-          } else if (a[args] > b[args]) {
+          } else if (a[arg2] > b[arg2]) {
             return 1;
           } else {
             return 0;
@@ -29,32 +28,3 @@ export class ArrayOrderPipe {
     }
   }
 }
-
-// @Pipe({
-//   name: "orderBy"
-// })
-// export class ArrayOrderPipe {
-//   transform(list, args) {
-//     if(args.charAt(0) === '-'){
-//       // little on top
-//       list.sort((a, b) => {
-//         return 0;
-//       });
-//     } else {
-//       // big on top
-//       list.sort((a, b) => {
-//         return 0;
-//       });
-//     }
-//     // list.sort((a, b) => {
-      // if (a['city'] < b['city']) {
-      //   return -1;
-      // } else if (a['city'] > b['city']) {
-      //   return 1;
-      // } else {
-      //   return 0;
-      // }
-//     // });
-//     return list;
-//   }
-// }
